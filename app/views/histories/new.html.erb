@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @history.errors.any? %>
+  <% @history.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add History</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_history" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for pseudoID -->
+      <div class="form-group">
+        <label for="pseudoID" class="control-label">
+          Pseudoid
+        </label>
+
+        <input type="text" id="pseudoID" name="pseudoID" placeholder="Pseudoid" class="form-control" value="<%= @history.pseudoID %>">
+      </div>
+
+      <!-- Label and input for course_data -->
+      <div class="form-group">
+        <label for="course_data" class="control-label">
+          Course data
+        </label>
+
+        <input type="text" id="course_data" name="course_data" placeholder="Course data" class="form-control" value="<%= @history.course_data %>">
+      </div>
+
+      <!-- Label and input for course_num -->
+      <div class="form-group">
+        <label for="course_num" class="control-label">
+          Course num
+        </label>
+
+        <input type="text" id="course_num" name="course_num" placeholder="Course num" class="form-control" value="<%= @history.course_num %>">
+      </div>
+
+      <!-- Label and input for year -->
+      <div class="form-group">
+        <label for="year" class="control-label">
+          Year
+        </label>
+
+        <input type="text" id="year" name="year" placeholder="Year" class="form-control" value="<%= @history.year %>">
+      </div>
+
+      <!-- Label and input for quarter_num -->
+      <div class="form-group">
+        <label for="quarter_num" class="control-label">
+          Quarter num
+        </label>
+
+        <input type="text" id="quarter_num" name="quarter_num" placeholder="Quarter num" class="form-control" value="<%= @history.quarter_num %>">
+      </div>
+
+      <!-- Label and input for quarter_text -->
+      <div class="form-group">
+        <label for="quarter_text" class="control-label">
+          Quarter text
+        </label>
+
+        <input type="text" id="quarter_text" name="quarter_text" placeholder="Quarter text" class="form-control" value="<%= @history.quarter_text %>">
+      </div>
+
+      <!-- Label and input for section -->
+      <div class="form-group">
+        <label for="section" class="control-label">
+          Section
+        </label>
+
+        <input type="text" id="section" name="section" placeholder="Section" class="form-control" value="<%= @history.section %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create History
+      </button>
+      or
+      <a href="/histories">Cancel</a>
+    </form>
+  </div>
+</div>

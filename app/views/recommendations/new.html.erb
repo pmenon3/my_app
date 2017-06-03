@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @recommendation.errors.any? %>
+  <% @recommendation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Recommendation</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_recommendation" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_num -->
+      <div class="form-group">
+        <label for="user_num" class="control-label">
+          User num
+        </label>
+
+        <input type="text" id="user_num" name="user_num" placeholder="User num" class="form-control" value="<%= @recommendation.user_num %>">
+      </div>
+
+      <!-- Label and input for pseudoID -->
+      <div class="form-group">
+        <label for="pseudoID" class="control-label">
+          Pseudoid
+        </label>
+
+        <input type="text" id="pseudoID" name="pseudoID" placeholder="Pseudoid" class="form-control" value="<%= @recommendation.pseudoID %>">
+      </div>
+
+      <!-- Label and input for course_id -->
+      <div class="form-group">
+        <label for="course_id" class="control-label">
+          Course
+        </label>
+
+        <input type="text" id="course_id" name="course_id" placeholder="Course" class="form-control" value="<%= @recommendation.course_id %>">
+      </div>
+
+      <!-- Label and input for cluster -->
+      <div class="form-group">
+        <label for="cluster" class="control-label">
+          Cluster
+        </label>
+
+        <input type="text" id="cluster" name="cluster" placeholder="Cluster" class="form-control" value="<%= @recommendation.cluster %>">
+      </div>
+
+      <!-- Label and input for course_name -->
+      <div class="form-group">
+        <label for="course_name" class="control-label">
+          Course name
+        </label>
+
+        <input type="text" id="course_name" name="course_name" placeholder="Course name" class="form-control" value="<%= @recommendation.course_name %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Recommendation
+      </button>
+      or
+      <a href="/recommendations">Cancel</a>
+    </form>
+  </div>
+</div>

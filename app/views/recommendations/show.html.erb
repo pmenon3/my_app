@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Recommendation #<%= @recommendation.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User num</dt>
+      <dd><%= @recommendation.user_num %></dd>
+
+      <dt>Pseudoid</dt>
+      <dd><%= @recommendation.pseudoID %></dd>
+
+      <dt>Course</dt>
+      <dd><%= @recommendation.course_id %></dd>
+
+      <dt>Cluster</dt>
+      <dd><%= @recommendation.cluster %></dd>
+
+      <dt>Course name</dt>
+      <dd><%= @recommendation.course_name %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/recommendations" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/recommendations/<%= @recommendation.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_recommendation/<%= @recommendation.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.maincontentrow {
+  padding-top: 10px;
+  height: 100px;
+  width: 10000px;
+  background-color:#800000;
+}
+
+.navbar {
+  margin-left: 0;
+  padding-left: 10px
+}
